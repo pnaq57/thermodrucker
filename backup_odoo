@@ -2,3 +2,6 @@ sudo dd if=/dev/disk2 of=~/odoo_backup.img
 
 if: source (this case is sd card)
 of: destination path
+
+
+sudo diskutil eraseDisk FAT32 SDCARD MBRFormat /dev/disk2
