@@ -1,0 +1,15 @@
+adduser --system --home=/odoo --group odoo
+cd /odoo
+git clone https://www.github.com/odoo/odoo --depth 1 --branch 12.0 --single-branch
+python3 -m pip uninstall pip
+apt-get install python3-pip -y
+pip3 install --upgrade -r requirements.txt
+chown odoo:odoo . -R
+apt-get install libopenjp2-7
+sudo apt-get install -y pngtools libtiff4 libtiffxx0c2 libtiff-tools 
+
+sudo su - postgres
+createuser --createdb --username postgres --no-createrole --no-superuser --pwprompt odoo
+
+sudo -u odoo /bin/bash
+python3 odoo-bin --config etc/config.cfg
