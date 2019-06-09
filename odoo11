@@ -39,3 +39,6 @@ sudo apt-get install node-less -y
 nano debian/config.cfg
 
 ; then add password of step above when postgres usser "odoo" created
+
+; install point_of_sale
+
