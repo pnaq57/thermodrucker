@@ -42,3 +42,4 @@ nano debian/config.cfg
 
 ; install point_of_sale
 
+; add auto start on systemd
