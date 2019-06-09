@@ -20,3 +20,15 @@ sudo su - odoo -s /bin/bash
 ; clone version 11
 git clone https://www.github.com/odoo/odoo --depth 1 --branch 11.0 --single-branch .
 
+; install pip3
+apt-get install python3-pip -y
+
+; install dependencies
+pip3 install --upgrade -r requirements.txt
+
+; pip insstalled PIL but not libopenjp2
+sudo apt-get install libopenjp2-7
+
+; libtiff needed
+sudo apt-get install -y pngtools libtiff4 libtiffxx0c2 libtiff-tools 
+
