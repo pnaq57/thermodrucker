@@ -1,0 +1,32 @@
+sudo nano /etc/systemd/system/odoo.service
+
+############################# odoo.dervice content #############
+Description=odoo auto start
+
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+User=odoo
+Type=simple
+ExecStart=/odoo/odoo-bin
+Restart=on-failure
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+########################## end of script ######################
+
+;reload
+sudo systemctl daemon-reload
+
+;enable service
+sudo systemctl enable odoo
+
+;start odoo manual
+sudo systemctl start odoo
+
+;check status
+systemctl status odoo
