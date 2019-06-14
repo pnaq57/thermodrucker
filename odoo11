@@ -26,6 +26,8 @@ apt-get install python3-pip -y
 ; install dependencies
 pip3 install --upgrade -r requirements.txt
 
+pip3 install netifaces
+
 ; pip insstalled PIL but not libopenjp2
 sudo apt-get install libopenjp2-7
 
