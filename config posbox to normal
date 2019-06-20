@@ -1,1 +1,2 @@
 sudo rm /etc/systemd/system/ramdisks.service
+sudo rm /etc/systemd/system/basic.target.wants/ramdisks.service
