@@ -7,3 +7,5 @@ d: delete partition, which should be removed, choose partition, add section gegi
 w: write to section table
 reboot
 sudo resize2fs /dev/mmcblk0p2
+
+http://www.fabiandeitelhoff.de/2014/07/raspberry-pi-speicherplatz-der-sd-karte-ausnutzen/
