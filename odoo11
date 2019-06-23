@@ -1,3 +1,6 @@
+# update to get newest state of packages
+sudo apt-get update
+
 ; system user not provide login
 sudo adduser --system --home=/odoo --group odoo
 
@@ -13,6 +16,9 @@ createuser --createdb --username postgres --no-createrole --no-superuser --pwpro
 
 ; install git
 sudo apt-get install git
+
+; create new path for odoo
+mkdir /odoo
 
 ; switch to odoo user to install odoo
 sudo su - odoo -s /bin/bash
