@@ -17,9 +17,6 @@ createuser --createdb --username postgres --no-createrole --no-superuser --pwpro
 ; install git
 sudo apt-get install git
 
-; create new path for odoo
-mkdir /odoo
-
 ; switch to odoo user to install odoo
 sudo su - odoo -s /bin/bash
 
