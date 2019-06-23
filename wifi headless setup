@@ -1,3 +1,4 @@
+touch /Volumes/boot/ssh
 # create new file "wpa_supplicant.conf" under /Volumes/boot/
 
 country=DE
