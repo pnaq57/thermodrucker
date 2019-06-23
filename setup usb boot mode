@@ -1,0 +1,3 @@
+First running normal on sd card and then  add this line under /boot/config.txt on sd card
+program_usb_boot_mode=1
+shutdown and unplug sd card
