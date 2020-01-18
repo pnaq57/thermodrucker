@@ -1,0 +1,14 @@
+## create wpa_supplicant.conf
+## dont change US
+## use vim or vi to keep linux format
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+    ssid="NETWORK_NAME"
+    psk="NETWORK_PASSWORD"
+}
+
+## create empty ssh
