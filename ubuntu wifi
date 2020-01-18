@@ -1,0 +1,60 @@
+sudo apt update
+sudo apt full-upgrade
+sudo reboot
+
+ip link show
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default
+    3: wlan0: ... state DOWN mode DEFAULT group default qlen 1000 link/ether
+    
+cd /etc/netplan/
+ls -l
+# -rw-r--r-- 1 root root 666 May 15 22:00 50-cloud-init.yaml
+### backup *cloud-init.yaml file
+cp 50-cloud-init.yaml 50-cloud-init.yaml.bak
+### edit *cloud-init.yaml
+sudo nano 50-cloud-init.yaml
+
+network:
+    version: 2
+    ethernets:
+        eth0:
+            optional: true
+            dhcp4: true
+    # add wifi setup information here ...
+    wifis:
+        wlan0:
+            optional: true
+            access-points:
+                "YOUR-SSID-NAME":
+                    password: "YOUR-NETWORK-PASSWORD"
+            dhcp4: true
+            
+Testing: sudo netplan --debug try (continue even if there are errors)
+Generate: sudo netplan --debug generate (provides more details in case of issues with the previous command)
+Apply: sudo netplan --debug apply (if no issues during the previous commands)
+
+reboot
+
+######## SETUP hotname
+
+sudo hostnamectl set-hostname my-server-name
+
+sudo nano /etc/hosts
+  127.0.0.1 localhost
+  # add host name
+  127.0.0.1 my-server-name
+  
+sudo nano /etc/cloud/cloud.cfg
+  # Set preserve_hostname to true for persistance after reboot
+  preserve_hostname: true
+  
+hostnamectl (test hostname)
+
+## Enable mDNS.
+## If desired, enable Multicast DNS by installing Avahi. Avahi supports the mDNS/DNS-SD/RFC 3927/Zeroconf/Bonjour specification.
+
+sudo apt install avahi-daemon 
+
+
