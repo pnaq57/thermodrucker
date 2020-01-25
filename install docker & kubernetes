@@ -17,9 +17,20 @@ sudo dpkg -i "docker-ce_19.03.3~3-0~ubuntu-disco_arm64.deb"
 
 sudo chmod 666 /var/run/docker.sock (permission problem)
 
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
+sudo apt-get update -q && \
+sudo apt-get install -qy kubeadm
+
 
 #########################################################################################################################
 
 curl -sfL https://get.k3s.io | sh -
 
 sudo systemctl status k3s
+
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
+sudo apt-key add - && echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | \
+sudo tee /etc/apt/sources.list.d/kubernetes.list && sudo apt-get update -q
+
+sudo apt-get install kubeadm
