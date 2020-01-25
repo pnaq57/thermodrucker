@@ -15,7 +15,11 @@ sudo dpkg -i "containerd.io_1.2.10-3_arm64.deb"
 sudo dpkg -i "docker-ce-cli_19.03.3~3-0~ubuntu-disco_arm64.deb"
 sudo dpkg -i "docker-ce_19.03.3~3-0~ubuntu-disco_arm64.deb"
 
+sudo chmod 666 /var/run/docker.sock (permission problem)
+
 
 #########################################################################################################################
 
 curl -sfL https://get.k3s.io | sh -
+
+sudo systemctl status k3s
