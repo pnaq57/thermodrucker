@@ -1,0 +1,21 @@
+curl -sSL get.docker.com | sh && sudo usermod pi -aG docker
+sudo usermod -aG docker pi
+
+#disable swap memory
+sudo systemctl disable dphys-swapfile.service
+sudo reboot
+
+#################################### FOR UBUNTU #######################################################################
+
+wget "https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/arm64/containerd.io_1.2.10-3_arm64.deb"
+wget "https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/arm64/docker-ce-cli_19.03.3~3-0~ubuntu-disco_arm64.deb"
+wget "https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/arm64/docker-ce_19.03.3~3-0~ubuntu-disco_arm64.deb"
+
+sudo dpkg -i "containerd.io_1.2.10-3_arm64.deb"
+sudo dpkg -i "docker-ce-cli_19.03.3~3-0~ubuntu-disco_arm64.deb"
+sudo dpkg -i "docker-ce_19.03.3~3-0~ubuntu-disco_arm64.deb"
+
+
+#########################################################################################################################
+
+curl -sfL https://get.k3s.io | sh -
